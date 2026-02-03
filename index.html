@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رمضان كريم يا حب ❤️</title>
+    <style>
+        body { background: #1a1a2e; color: #fff; text-align: center; font-family: 'Arial', sans-serif; margin: 0; padding: 20px; }
+        .page { display: none; max-width: 500px; margin: auto; animation: fadeIn 0.8s; }
+        #page1 { display: block; } /* أول صفحة تظهر */
+        .card { background: #16213e; padding: 30px; border-radius: 20px; border: 2px solid #e94560; box-shadow: 0 0 20px rgba(233, 69, 96, 0.3); }
+        h1 { color: #e94560; }
+        input { padding: 15px; width: 80%; border-radius: 10px; border: none; margin-bottom: 20px; text-align: center; }
+        button { background: #e94560; color: #fff; border: none; padding: 15px 30px; border-radius: 10px; cursor: pointer; font-size: 18px; width: 100%; }
+        img, video { width: 100%; border-radius: 15px; margin-top: 20px; border: 2px solid #0f3460; }
+        .text-box { background: #0f3460; padding: 20px; border-radius: 15px; margin-top: 20px; line-height: 1.6; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+    <div id="page1" class="page">
+        <div class="card">
+            <h1>🌙 رمضان كريم 🌙</h1>
+            <p>كل سنه واحنا مع بعض ورمضاننا أحلى بكتير..</p>
+            <input type="password" id="pass" placeholder="اكتب كلمة السر هنا...">
+            <button onclick="goToPage(2)">افتح الهدية 🎁</button>
+        </div>
+    </div>
+
+    <div id="page2" class="page">
+        <div class="card">
+            <h1>فيديو مخصوص ليك ✨</h1>
+            <video id="myVideo" controls>
+                <source src="1.mp4" type="video/mp4">
+            </video>
+            <div class="text-box">
+                <p>رمضان دخل قولت أقولك كل سنه وأنت طيب يا أغلى الناس، ويا رب دايماً ضهرنا في ضهر بعض ومع بعض في كل رمضان. ❤️</p>
+            </div>
+            <button onclick="goToPage(3)" style="margin-top: 20px;">شوف الصور 📸</button>
+        </div>
+    </div>
+
+    <div id="page3" class="page">
+        <div class="card">
+            <h1>أحلى ذكرياتنا 💖</h1>
+            <img src="1.jpg">
+            <img src="2.jpg">
+            <div class="text-box">
+                <h2>ربنا يخلينا لبعض ❤️ بحبك ❤️</h2>
+            </div>
+            <button onclick="goToPage(1)" style="margin-top: 20px; background: #555;">الرجوع للرئيسية</button>
+        </div>
+    </div>
+
+    <script>
+        function goToPage(pageNum) {
+            // لو رايح لصفحة الباسورد
+            if (pageNum === 2) {
+                var p = document.getElementById("pass").value;
+                if (p !== "2006") { // الباسورد هنا 2006
+                    alert("ركز ياقلبي الباسورد غلط 😉");
+                    return;
+                }
+            }
+            // إخفاء كل الصفحات
+            document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+            // إظهار الصفحة المطلوبة
+            document.getElementById('page' + pageNum).style.display = 'block';
+            window.scrollTo(0,0);
+        }
+    </script>
+</body>
+</html>
