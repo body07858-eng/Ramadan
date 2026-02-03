@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>رمضان كريم يا حب ❤️</title>
+    <title>رمضان كريم ✨</title>
     <style>
-        body { background: #1a1a2e; color: #fff; text-align: center; font-family: 'Arial', sans-serif; margin: 0; padding: 20px; }
-        .page { display: none; max-width: 500px; margin: auto; animation: fadeIn 0.8s; }
-        #page1 { display: block; } /* أول صفحة تظهر */
-        .card { background: #16213e; padding: 30px; border-radius: 20px; border: 2px solid #e94560; box-shadow: 0 0 20px rgba(233, 69, 96, 0.3); }
-        h1 { color: #e94560; }
-        input { padding: 15px; width: 80%; border-radius: 10px; border: none; margin-bottom: 20px; text-align: center; }
-        button { background: #e94560; color: #fff; border: none; padding: 15px 30px; border-radius: 10px; cursor: pointer; font-size: 18px; width: 100%; }
-        img, video { width: 100%; border-radius: 15px; margin-top: 20px; border: 2px solid #0f3460; }
-        .text-box { background: #0f3460; padding: 20px; border-radius: 15px; margin-top: 20px; line-height: 1.6; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        body { background: #1a1a2e; color: #fff; text-align: center; font-family: 'Arial', sans-serif; margin: 0; padding: 20px; overflow-x: hidden; }
+        .page { display: none; max-width: 500px; margin: 40px auto; animation: slideIn 0.6s ease-out; }
+        #page1 { display: block; }
+        .card { background: #16213e; padding: 30px; border-radius: 25px; border: 2px solid #ff7f50; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        button { background: #ff7f50; color: #fff; border: none; padding: 15px; border-radius: 12px; cursor: pointer; font-size: 18px; width: 100%; font-weight: bold; margin-top: 20px; }
+        img, video { width: 100%; border-radius: 20px; margin-top: 15px; border: 2px solid #ffaf7b; }
+        .text-box { background: #0f3460; padding: 20px; border-radius: 15px; margin: 20px 0; line-height: 1.8; font-size: 1.1rem; border-right: 5px solid #ff7f50; }
+        input { padding: 15px; width: 85%; border-radius: 12px; border: none; text-align: center; }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
@@ -22,51 +21,66 @@
     <div id="page1" class="page">
         <div class="card">
             <h1>🌙 رمضان كريم 🌙</h1>
-            <p>كل سنه واحنا مع بعض ورمضاننا أحلى بكتير..</p>
-            <input type="password" id="pass" placeholder="اكتب كلمة السر هنا...">
-            <button onclick="goToPage(2)">افتح الهدية 🎁</button>
+            <input type="password" id="passInput" placeholder="اكتب كلمة السر...">
+            <button onclick="checkPass()">افتح الهدية 🎁</button>
         </div>
     </div>
 
     <div id="page2" class="page">
         <div class="card">
-            <h1>فيديو مخصوص ليك ✨</h1>
-            <video id="myVideo" controls>
-                <source src="1.mp4" type="video/mp4">
-            </video>
+            <h1>فيديو مخصوص ✨</h1>
+            <video id="vid" controls><source src="1.mp4" type="video/mp4"></video>
             <div class="text-box">
-                <p>رمضان دخل قولت أقولك كل سنه وأنت طيب يا أغلى الناس، ويا رب دايماً ضهرنا في ضهر بعض ومع بعض في كل رمضان. ❤️</p>
+                <p>كل سنه واحنا مع بعض ياقلبي ودايما مهما حصل في ضهر بعض رمضان داخل قولت اقولك كل سنه وانت طيب بس بطريقتي بحبكم 💗</p>
             </div>
-            <button onclick="goToPage(3)" style="margin-top: 20px;">شوف الصور 📸</button>
+            <button onclick="showPage(3)">شوف أول صورة 📸</button>
         </div>
     </div>
 
     <div id="page3" class="page">
         <div class="card">
-            <h1>أحلى ذكرياتنا 💖</h1>
+            <h1>أجمل ذكرى 📸</h1>
             <img src="1.jpg.jpeg">
+            <button onclick="showPage(4)">الصورة اللي بعدها 🔥</button>
+        </div>
+    </div>
+
+    <div id="page4" class="page">
+        <div class="card">
+            <h1>ضحكتنا سوا ❤️</h1>
             <img src="2.jpg.jpeg">
+            <button onclick="showPage(5)">رسالة ليك 💌</button>
+        </div>
+    </div>
+
+    <div id="page5" class="page">
+        <div class="card">
+            <h1>كلام من القلب 😂</h1>
             <div class="text-box">
-                <h2>ربنا يخلينا لبعض ❤️ بحبك ❤️</h2>
+                <p>رمضان كريم يا قلبي، وكل سنه واحنا مع بعض كل رمضان، ونرخم على بعض زاي كل سنه كدة وما نتحرمش من بعض أبداً.. رمضان أحلى بيك! 🌙✨</p>
             </div>
-            <button onclick="goToPage(1)" style="margin-top: 20px; background: #555;">الرجوع للرئيسية</button>
+            <button onclick="showPage(6)">آخر حاجة بقا 🎀</button>
+        </div>
+    </div>
+
+    <div id="page6" class="page">
+        <div class="card" style="border-color: #ff7f50;">
+            <h1 style="font-size: 2.5rem; color: #ff7f50;">رمضان مبارك ❤️</h1>
+            <p>كل سنة وأنت طيب ومنور دنيتي دايماً وضهرنا في ضهر بعض.</p>
+            <h1 style="font-size: 3rem; margin: 20px 0;">🌙 رمضان كريم 🌙</h1>
+            <button onclick="showPage(1)" style="background: #555;">الرجوع للرئيسية</button>
         </div>
     </div>
 
     <script>
-        function goToPage(pageNum) {
-            // لو رايح لصفحة الباسورد
-            if (pageNum === 2) {
-                var p = document.getElementById("pass").value;
-                if (p !== "2006") { // الباسورد هنا 2006
-                    alert("ركز ياقلبي الباسورد غلط 😉");
-                    return;
-                }
-            }
-            // إخفاء كل الصفحات
+        function checkPass() {
+            if (document.getElementById("passInput").value === "2006") { showPage(2); } 
+            else { alert("الباسورد غلط يا برنس! 😉"); }
+        }
+        function showPage(num) {
             document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-            // إظهار الصفحة المطلوبة
-            document.getElementById('page' + pageNum).style.display = 'block';
+            document.getElementById('page' + num).style.display = 'block';
+            if(num === 2) document.getElementById('vid').play();
             window.scrollTo(0,0);
         }
     </script>
